@@ -1,0 +1,1860 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="CCNP ENCOR 350-401 インフラストラクチャ (レイヤ2 / レイヤ3 / IPサービス) を30分で駆け抜けるハンズオンコース">
+      
+      
+      
+      
+        <link rel="prev" href="../31-layer2/">
+      
+      
+        <link rel="next" href="../33-ip-services/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>3.2 レイヤ 3 - CCNP ENCOR ハンズオン (30分) - インフラストラクチャ</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#32-3" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href=".." title="CCNP ENCOR ハンズオン (30分) - インフラストラクチャ" class="md-header__button md-logo" aria-label="CCNP ENCOR ハンズオン (30分) - インフラストラクチャ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CCNP ENCOR ハンズオン (30分) - インフラストラクチャ
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3.2 レイヤ 3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="ダークモードに切り替え"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="ダークモードに切り替え" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="ライトモードに切り替え"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="ライトモードに切り替え" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CCNP ENCOR ハンズオン (30分) - インフラストラクチャ" class="md-nav__button md-logo" aria-label="CCNP ENCOR ハンズオン (30分) - インフラストラクチャ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CCNP ENCOR ハンズオン (30分) - インフラストラクチャ
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホーム
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-lab-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0. ラボ準備
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-layer2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.1 レイヤ 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.2 レイヤ 3
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.2 レイヤ 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#32a-eigrp-ospf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.a EIGRP と OSPF のルーティング概念の比較
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2.a EIGRP と OSPF のルーティング概念の比較">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        比較表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ospf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OSPF エリアタイプ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eigrp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考: EIGRP (名前付きモード) の基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32b-ospfv2v3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.b 複数エリア、要約、フィルタリングを含む OSPFv2/v3 の設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2.b 複数エリア、要約、フィルタリングを含む OSPFv2/v3 の設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ospfv2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ハンズオン (OSPFv2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ospfv2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        確認 (OSPFv2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ospfv3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ハンズオン (OSPFv3)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        壊して直す
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32c-ebgp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.c 直接接続されたネイバー間での eBGP の設定と確認
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2.c 直接接続されたネイバー間での eBGP の設定と確認">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ハンズオン
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bgp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BGP ネイバーの状態遷移
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストパス選択アルゴリズム (上から順に評価)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        壊して直す
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32d-pbr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.d ポリシーベースルーティングの説明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2.d ポリシーベースルーティングの説明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r2-lan-http-isp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定例 (R2: LAN からの HTTP のみ ISP 方向へ)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../33-ip-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.3 IP サービス
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    まとめ・確認問題
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#32a-eigrp-ospf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.a EIGRP と OSPF のルーティング概念の比較
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2.a EIGRP と OSPF のルーティング概念の比較">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        比較表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ospf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OSPF エリアタイプ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eigrp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考: EIGRP (名前付きモード) の基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32b-ospfv2v3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.b 複数エリア、要約、フィルタリングを含む OSPFv2/v3 の設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2.b 複数エリア、要約、フィルタリングを含む OSPFv2/v3 の設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ospfv2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ハンズオン (OSPFv2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ospfv2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        確認 (OSPFv2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ospfv3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ハンズオン (OSPFv3)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        壊して直す
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32c-ebgp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.c 直接接続されたネイバー間での eBGP の設定と確認
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2.c 直接接続されたネイバー間での eBGP の設定と確認">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ハンズオン
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bgp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BGP ネイバーの状態遷移
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストパス選択アルゴリズム (上から順に評価)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        壊して直す
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32d-pbr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.d ポリシーベースルーティングの説明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2.d ポリシーベースルーティングの説明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r2-lan-http-isp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定例 (R2: LAN からの HTTP のみ ISP 方向へ)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="32-3">3.2 レイヤ 3<a class="headerlink" href="#32-3" title="Permanent link">&para;</a></h1>
+<p>使用デバイス: <strong>R1 / R2 / R3 / R4</strong></p>
+<pre class="mermaid"><code>graph LR
+    R1 ---|"10.0.12.0/24&lt;br/&gt;OSPF area 0 (broadcast)"| R2
+    R2 ---|"10.0.23.0/30&lt;br/&gt;OSPF area 1 (p2p)"| R3
+    R2 ---|"10.0.24.0/30&lt;br/&gt;eBGP 65001 - 65002"| R4</code></pre>
+<hr />
+<h2 id="32a-eigrp-ospf">3.2.a EIGRP と OSPF のルーティング概念の比較<a class="headerlink" href="#32a-eigrp-ospf" title="Permanent link">&para;</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">所要 2 分 / 目標</p>
+<p>EIGRP (拡張ディスタンスベクター型) と OSPF (リンクステート型) の
+動作・メトリック・パス選択・ロードバランシング・エリアタイプの違いを説明できる。</p>
+</div>
+<h3 id="_1">比較表<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>EIGRP</th>
+<th>OSPF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分類</td>
+<td><strong>拡張 (アドバンスト) ディスタンスベクター型</strong></td>
+<td><strong>リンクステート型</strong></td>
+</tr>
+<tr>
+<td>アルゴリズム</td>
+<td><strong>DUAL</strong></td>
+<td><strong>ダイクストラ (SPF)</strong></td>
+</tr>
+<tr>
+<td>情報の共有</td>
+<td>隣接ルーターへ<strong>経路情報</strong>を通知 (部分更新・トリガー更新)</td>
+<td>エリア内の全ルーターで<strong>同一の LSDB</strong>を保持</td>
+</tr>
+<tr>
+<td>トランスポート</td>
+<td>IP プロトコル 88 (RTP で信頼性確保)</td>
+<td>IP プロトコル 89</td>
+</tr>
+<tr>
+<td>マルチキャスト</td>
+<td>224.0.0.10 / FF02::A</td>
+<td>224.0.0.5 (全 OSPF) / 224.0.0.6 (DR/BDR) / FF02::5 / FF02::6</td>
+</tr>
+<tr>
+<td>管理距離 (AD)</td>
+<td>内部 90 / 外部 170 / 集約 5</td>
+<td>110</td>
+</tr>
+<tr>
+<td><strong>メトリック</strong></td>
+<td>複合メトリック (帯域幅 + 遅延が既定。K 値で変更)</td>
+<td><strong>コスト</strong> = 基準帯域幅 ÷ インターフェイス帯域幅</td>
+</tr>
+<tr>
+<td>メトリック式 (既定)</td>
+<td><code>256 × (10^7 ÷ 最小帯域幅[kbps] + 遅延合計[10μs 単位])</code> (クラシック)</td>
+<td><code>cost = 100 Mbps ÷ bw</code> (<code>auto-cost reference-bandwidth</code> で変更)</td>
+</tr>
+<tr>
+<td><strong>パス選択</strong></td>
+<td>最小の複合メトリック。<strong>Successor</strong> と <strong>Feasible Successor</strong> (FC: RD &lt; FD)</td>
+<td>最小の累積コスト。<strong>エリア内 &gt; エリア間 &gt; E1 &gt; E2</strong> の順</td>
+</tr>
+<tr>
+<td><strong>ロードバランシング</strong></td>
+<td>等コスト + <strong>不等コスト (<code>variance</code>)</strong></td>
+<td><strong>等コストのみ</strong> (<code>maximum-paths</code>)</td>
+</tr>
+<tr>
+<td><strong>経路の動作</strong></td>
+<td>代替経路 (FS) があれば即時に切替。なければ Query で再計算 (Active)</td>
+<td>変化があれば LSA をフラッディングし、SPF を再計算</td>
+</tr>
+<tr>
+<td>階層設計</td>
+<td>エリアの概念なし (スタブ、集約で制御)</td>
+<td><strong>エリア</strong> (バックボーンの area 0 が必須)</td>
+</tr>
+<tr>
+<td>認証</td>
+<td>MD5 / HMAC-SHA-256</td>
+<td>プレーン / MD5 / SHA (キーチェーン)</td>
+</tr>
+<tr>
+<td>Hello / Hold(Dead)</td>
+<td>5 / 15 秒 (高速リンク)</td>
+<td>10 / 40 秒 (broadcast, p2p)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">試験ポイント</p>
+<ul>
+<li>EIGRP の<strong>フィージビリティ条件 (FC)</strong>: 隣接ルーターの <strong>Reported Distance &lt; 自分の Feasible Distance</strong>。</li>
+<li>EIGRP の不等コスト LB は <strong><code>variance</code></strong>。FC を満たす経路のみが対象。</li>
+<li>OSPF のパス選択優先順位: <code>O</code> (エリア内) → <code>O IA</code> (エリア間) → <code>O E1</code> → <code>O E2</code> (メトリックの比較より<strong>経路タイプが優先</strong>)。</li>
+<li>OSPF のロードバランシングは<strong>コストが等しい</strong>場合のみ。</li>
+</ul>
+</div>
+<h3 id="ospf">OSPF エリアタイプ<a class="headerlink" href="#ospf" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>エリアタイプ</th>
+<th>許可される LSA</th>
+<th>特徴</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>通常 (Normal)</strong></td>
+<td>1, 2, 3, 4, 5</td>
+<td>外部経路 (LSA 5) を含む全 LSA</td>
+</tr>
+<tr>
+<td><strong>スタブ (Stub)</strong></td>
+<td>1, 2, 3</td>
+<td>LSA 4/5 をブロックし、<strong>デフォルトルート</strong>を ABR が注入</td>
+</tr>
+<tr>
+<td><strong>トータリースタブ</strong></td>
+<td>1, 2 + デフォルト (LSA 3)</td>
+<td>LSA 3 もブロック (Cisco 独自、<code>no-summary</code>)</td>
+</tr>
+<tr>
+<td><strong>NSSA</strong></td>
+<td>1, 2, 3, <strong>7</strong></td>
+<td>ASBR を持てるスタブ。ABR が LSA 7 を LSA 5 に変換</td>
+</tr>
+<tr>
+<td><strong>トータリー NSSA</strong></td>
+<td>1, 2, 7 + デフォルト</td>
+<td>NSSA + <code>no-summary</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="eigrp">参考: EIGRP (名前付きモード) の基本設定<a class="headerlink" href="#eigrp" title="Permanent link">&para;</a></h3>
+<p>ラボには適用しません。比較のための参照用です。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>router eigrp CCNP
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a> address-family ipv4 unicast autonomous-system 100
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  af-interface default
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>   passive-interface
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  exit-af-interface
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  af-interface GigabitEthernet0/0
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>   no passive-interface
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  exit-af-interface
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  topology base
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>   variance 2
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>   maximum-paths 4
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>  exit-af-topology
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  network 10.0.0.0 0.255.255.255
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a> exit-address-family
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>show ip eigrp neighbors
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>show ip eigrp topology
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>show ip eigrp topology all-links
+</code></pre></div>
+<hr />
+<h2 id="32b-ospfv2v3">3.2.b 複数エリア、要約、フィルタリングを含む OSPFv2/v3 の設定<a class="headerlink" href="#32b-ospfv2v3" title="Permanent link">&para;</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">所要 4 分 / 目標</p>
+<p>area 0 / area 1 の複数エリア OSPFv2 を構成し、エリア間の要約・フィルタリング、
+ネットワークタイプ (broadcast / point-to-point)、パッシブインターフェイスを設定・確認する。
+あわせて OSPFv3 (アドレスファミリー形式) を構成する。</p>
+</div>
+<h3 id="_2">設計<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>リンク</th>
+<th>エリア</th>
+<th>ネットワークタイプ</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1 Gi0/0 ↔ R2 Gi0/0</td>
+<td>0</td>
+<td><strong>broadcast</strong></td>
+<td>R1 を DR (priority 100)</td>
+</tr>
+<tr>
+<td>R1/R2 Gi0/1 (LAN)</td>
+<td>0</td>
+<td>broadcast</td>
+<td><strong>passive</strong> (ホスト側)</td>
+</tr>
+<tr>
+<td>R2 Gi0/2 ↔ R3 Gi0/0</td>
+<td>1</td>
+<td><strong>point-to-point</strong></td>
+<td>DR/BDR 選出なし</td>
+</tr>
+<tr>
+<td>R3 Lo10 / Lo11 / Lo12</td>
+<td>1</td>
+<td>point-to-point (ループバック)</td>
+<td><strong>要約・フィルタ</strong>の対象</td>
+</tr>
+</tbody>
+</table>
+<p>R2 は <strong>ABR</strong> (area 0 / area 1) かつ、デフォルトルートを広告する <strong>ASBR</strong> になります。</p>
+<h3 id="ospfv2">ハンズオン (OSPFv2)<a class="headerlink" href="#ospfv2" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">R1</label><label for="__tabbed_1_2">R2</label><label for="__tabbed_1_3">R3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>router ospf 1
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a> router-id 1.1.1.1
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a> passive-interface default
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a> no passive-interface GigabitEthernet0/0
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>!
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>interface Loopback0
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a> ip ospf 1 area 0
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>interface GigabitEthernet0/0
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a> ip ospf network broadcast
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a> ip ospf priority 100
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a> ip ospf 1 area 0
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>interface GigabitEthernet0/1
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a> ip ospf 1 area 0
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>router ospf 1
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a> router-id 2.2.2.2
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a> passive-interface default
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a> no passive-interface GigabitEthernet0/0
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a> no passive-interface GigabitEthernet0/2
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a> ! --- 要約: 10.3.0.0/24 + 10.3.1.0/24 を 1 つの /23 に ---
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a> area 1 range 10.3.0.0 255.255.254.0
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a> ! --- フィルタ: 10.3.2.0/24 は area 0 に広告しない ---
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a> area 1 range 10.3.2.0 255.255.255.0 not-advertise
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a> ! --- デフォルトルートを OSPF ドメインへ広告 ---
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a> default-information originate always
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>!
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>interface Loopback0
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a> ip ospf 1 area 0
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>interface GigabitEthernet0/0
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a> ip ospf network broadcast
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a> ip ospf 1 area 0
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>interface GigabitEthernet0/1
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a> ip ospf 1 area 0
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>interface GigabitEthernet0/2
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a> ip ospf network point-to-point
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a> ip ospf 1 area 1
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>router ospf 1
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a> router-id 3.3.3.3
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a> passive-interface default
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a> no passive-interface GigabitEthernet0/0
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>!
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>interface Loopback0
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a> ip ospf 1 area 1
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>interface range Loopback10 - 12
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a> ip ospf network point-to-point
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a> ip ospf 1 area 1
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>interface GigabitEthernet0/0
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a> ip ospf network point-to-point
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a> ip ospf 1 area 1
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">ループバックの <code>ip ospf network point-to-point</code></p>
+<p>ループバックは既定で <code>/32</code> のホストルートとして広告されます。
+<code>point-to-point</code> にすると設定したサブネット長 (<code>/24</code>) のまま広告されます。</p>
+</div>
+<h3 id="ospfv2_1">確認 (OSPFv2)<a class="headerlink" href="#ospfv2_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>R1# show ip ospf neighbor
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>R2# show ip ospf neighbor
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>R1# show ip route ospf
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>R1# show ip ospf interface brief
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>R2# show ip ospf database
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>R2# show ip protocols
+</code></pre></div>
+<p>期待される結果:</p>
+<table>
+<thead>
+<tr>
+<th>確認項目</th>
+<th>期待値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1 の neighbor</td>
+<td>R2 が <code>FULL/BDR</code> (R1 が DR)</td>
+</tr>
+<tr>
+<td>R2 の neighbor</td>
+<td>R1 が <code>FULL/DR</code>、R3 が <code>FULL/-</code> (p2p は DR なし)</td>
+</tr>
+<tr>
+<td>R1 のルーティングテーブル</td>
+<td><code>O IA 10.3.0.0/23</code> (<strong>要約</strong>) と <code>O*E2 0.0.0.0/0</code></td>
+</tr>
+<tr>
+<td>10.3.2.0/24</td>
+<td>R1 の OSPF テーブルに<strong>存在しない</strong> (<strong>フィルタ</strong>) ※ R2 / R3 には存在</td>
+</tr>
+<tr>
+<td>R3 のルーティングテーブル</td>
+<td><code>O IA</code> で area 0 の経路、<code>O*E2 0.0.0.0/0</code></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>R1# show ip route ospf | include 10.3
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>R1# show ip route 10.3.2.0          ← "Routing entry for 0.0.0.0/0" (デフォルト経由) になれば OK
+</code></pre></div>
+<p><code>10.3.0.0/23</code> のみが表示され、<code>10.3.2.0/24</code> が表示されなければフィルタ成功です。</p>
+<div class="admonition tip">
+<p class="admonition-title">フィルタの別手段</p>
+<p><code>area 1 filter-list prefix &lt;名前&gt; out</code> でも ABR での LSA 3 フィルタが可能です。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ip prefix-list BLOCK-LO12 seq 5 deny 10.3.2.0/24
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>ip prefix-list BLOCK-LO12 seq 10 permit 0.0.0.0/0 le 32
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>router ospf 1
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a> area 1 filter-list prefix BLOCK-LO12 out
+</code></pre></div></p>
+</div>
+<h3 id="ospfv3">ハンズオン (OSPFv3)<a class="headerlink" href="#ospfv3" title="Permanent link">&para;</a></h3>
+<p>OSPFv3 は<strong>インターフェイス単位</strong>で有効化し、<strong>アドレスファミリー</strong>形式で設定します。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">R1</label><label for="__tabbed_2_2">R2</label><label for="__tabbed_2_3">R3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ipv6 unicast-routing
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>interface GigabitEthernet0/0
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a> ipv6 address 2001:DB8:12::1/64
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a> ospfv3 1 ipv6 area 0
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>router ospfv3 1
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a> router-id 1.1.1.1
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a> address-family ipv6 unicast
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>  passive-interface default
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>  no passive-interface GigabitEthernet0/0
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a> exit-address-family
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ipv6 unicast-routing
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>interface GigabitEthernet0/0
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a> ipv6 address 2001:DB8:12::2/64
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a> ospfv3 1 ipv6 area 0
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>interface GigabitEthernet0/2
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a> ipv6 address 2001:DB8:23::1/64
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a> ospfv3 network point-to-point
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a> ospfv3 1 ipv6 area 1
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>router ospfv3 1
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a> router-id 2.2.2.2
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a> address-family ipv6 unicast
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>  passive-interface default
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>  no passive-interface GigabitEthernet0/0
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>  no passive-interface GigabitEthernet0/2
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a> exit-address-family
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ipv6 unicast-routing
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>interface GigabitEthernet0/0
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a> ipv6 address 2001:DB8:23::2/64
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a> ospfv3 network point-to-point
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a> ospfv3 1 ipv6 area 1
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>router ospfv3 1
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a> router-id 3.3.3.3
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a> address-family ipv6 unicast
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>  passive-interface default
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>  no passive-interface GigabitEthernet0/0
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a> exit-address-family
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>R1# show ospfv3 neighbor
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>R1# show ospfv3 interface brief
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>R1# show ipv6 route ospf
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">OSPFv2 と OSPFv3 の違い</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>OSPFv2</th>
+<th>OSPFv3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>有効化</td>
+<td><code>network</code> / <code>ip ospf</code></td>
+<td><strong>インターフェイス単位</strong> (<code>ospfv3 &lt;pid&gt; ipv6 area</code>)</td>
+</tr>
+<tr>
+<td>対応プロトコル</td>
+<td>IPv4</td>
+<td>IPv6 (AF で IPv4 も可)</td>
+</tr>
+<tr>
+<td>ネイバーのアドレス</td>
+<td>インターフェイスの IPv4</td>
+<td><strong>リンクローカル</strong>アドレス</td>
+</tr>
+<tr>
+<td>認証</td>
+<td>OSPF 独自</td>
+<td><strong>IPsec (AH/ESP)</strong> / 認証トレーラー</td>
+</tr>
+<tr>
+<td>Router ID</td>
+<td>IPv4 形式</td>
+<td>IPv4 形式 (<strong>IPv6 のみの環境でも手動設定が必要</strong>)</td>
+</tr>
+<tr>
+<td>リンク単位の LSA</td>
+<td>なし</td>
+<td><strong>Link LSA (Type 8)</strong>、Intra-Area-Prefix LSA (Type 9)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="_3">壊して直す<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>R3 の Gi0/0 の Hello 間隔を変更して、タイマー不一致による隣接関係の切断を観察します。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>R3(config)# interface GigabitEthernet0/0
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>R3(config-if)# ip ospf hello-interval 5
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>R2# show ip ospf neighbor
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>R3# show ip ospf interface GigabitEthernet0/0 | include Timer
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>R2# show logging | include OSPF
+</code></pre></div>
+<ul>
+<li>期待: Dead タイマー (40 秒) 経過後に <code>%OSPF-5-ADJCHG: ... FULL to DOWN</code> が出力され、R3 のネイバーが消える。
+  (Hello 間隔が異なると Hello を受理されないため、再形成もされない。待てない場合は <code>clear ip ospf process</code> で即確認。)</li>
+<li>復旧: <code>no ip ospf hello-interval</code> で既定値 (10 秒) に戻す。</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">ネットワークタイプの不一致 (参考)</p>
+<p>p2p と broadcast の食い違いは、Hello / Dead の既定値が同じでもネイバーが <code>FULL</code> になったまま
+<strong>経路が正しく計算されない</strong>といった分かりにくい障害になることがあります。
+<code>show ip ospf interface</code> で両端の <strong>Network Type</strong> を必ず確認してください。</p>
+</div>
+<p><strong>OSPF 隣接関係が形成されない場合のチェックリスト</strong></p>
+<table>
+<thead>
+<tr>
+<th>原因</th>
+<th>確認コマンド</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hello / Dead タイマー不一致</td>
+<td><code>show ip ospf interface</code></td>
+</tr>
+<tr>
+<td>エリア ID・エリアタイプ (stub フラグ) 不一致</td>
+<td><code>show ip ospf interface</code> / <code>show ip protocols</code></td>
+</tr>
+<tr>
+<td>サブネット / マスク不一致 (broadcast)</td>
+<td><code>show ip interface brief</code></td>
+</tr>
+<tr>
+<td>認証不一致</td>
+<td><code>debug ip ospf adj</code></td>
+</tr>
+<tr>
+<td>Router ID 重複</td>
+<td><code>show ip ospf</code></td>
+</tr>
+<tr>
+<td><strong>MTU 不一致</strong> (EXSTART/EXCHANGE で停止)</td>
+<td><code>show ip ospf interface</code> / <code>show interface</code></td>
+</tr>
+<tr>
+<td>パッシブインターフェイス</td>
+<td><code>show ip protocols</code></td>
+</tr>
+<tr>
+<td>ACL でプロトコル 89 を遮断</td>
+<td><code>show access-lists</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ネイバー状態</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DOWN → INIT</td>
+<td>Hello 受信 (自分の RID が相手の Hello に未掲載)</td>
+</tr>
+<tr>
+<td><strong>2-WAY</strong></td>
+<td>双方向通信を確認。DROTHER 同士は<strong>この状態で正常</strong></td>
+</tr>
+<tr>
+<td>EXSTART / EXCHANGE</td>
+<td>DBD 交換 (MTU 不一致で停止しやすい)</td>
+</tr>
+<tr>
+<td>LOADING</td>
+<td>LSR / LSU で LSA を取得</td>
+</tr>
+<tr>
+<td><strong>FULL</strong></td>
+<td>LSDB 同期完了</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="32c-ebgp">3.2.c 直接接続されたネイバー間での eBGP の設定と確認<a class="headerlink" href="#32c-ebgp" title="Permanent link">&para;</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">所要 3 分 / 目標</p>
+<p>直接接続のネイバーと eBGP を確立し、<code>show ip bgp</code> で経路属性を確認して、
+ベストパス選択アルゴリズムの流れを説明できる。</p>
+</div>
+<h3 id="_4">設計<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ルーター</th>
+<th>AS</th>
+<th>ルーター ID</th>
+<th>広告するネットワーク</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R2</td>
+<td>65001</td>
+<td>2.2.2.2</td>
+<td>198.51.100.0/24 (公開アドレス・模擬。NAT で使用)</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>65002</td>
+<td>4.4.4.4</td>
+<td>203.0.113.0/24 (インターネット上の宛先・模擬)、4.4.4.4/32</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">BGP の <code>network</code> コマンド</p>
+<p><code>network</code> で広告するプレフィックスは、<strong>ルーティングテーブルに完全一致</strong>で存在する必要があります。
+R2 では <code>ip route 198.51.100.0 255.255.255.0 Null0</code> を作成して条件を満たします。</p>
+</div>
+<h3 id="_5">ハンズオン<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">R2</label><label for="__tabbed_3_2">R4</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>ip route 198.51.100.0 255.255.255.0 Null0
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>!
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>router bgp 65001
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a> bgp router-id 2.2.2.2
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a> bgp log-neighbor-changes
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a> neighbor 10.0.24.2 remote-as 65002
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a> neighbor 10.0.24.2 description ISP-R4
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a> !
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a> address-family ipv4
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>  network 198.51.100.0 mask 255.255.255.0
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>  neighbor 10.0.24.2 activate
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a> exit-address-family
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>router bgp 65002
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a> bgp router-id 4.4.4.4
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a> bgp log-neighbor-changes
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a> neighbor 10.0.24.1 remote-as 65001
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a> neighbor 10.0.24.1 description CUSTOMER-R2
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a> !
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a> address-family ipv4
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>  network 203.0.113.0 mask 255.255.255.0
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>  network 4.4.4.4 mask 255.255.255.255
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>  neighbor 10.0.24.1 activate
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a> exit-address-family
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="_6">確認<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>R2# show ip bgp summary
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>R2# show ip bgp
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>R2# show ip bgp 203.0.113.0/24
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>R2# show ip route bgp
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>R4# show ip bgp neighbors 10.0.24.1 | include BGP state|Hold|Keepalive
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>確認項目</th>
+<th>期待値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ネイバー状態</td>
+<td><code>show ip bgp summary</code> の <code>State/PfxRcd</code> が<strong>数値</strong> (= Established)</td>
+</tr>
+<tr>
+<td>R2 のテーブル</td>
+<td><code>203.0.113.0/24</code> と <code>4.4.4.4/32</code> が <code>*&gt;</code> (有効かつベスト)</td>
+</tr>
+<tr>
+<td>R2 のルーティングテーブル</td>
+<td><code>B 203.0.113.0/24 [20/0] via 10.0.24.2</code> (eBGP の AD は <strong>20</strong>)</td>
+</tr>
+<tr>
+<td>R4 のテーブル</td>
+<td><code>198.51.100.0/24</code> を受信</td>
+</tr>
+</tbody>
+</table>
+<p>疎通確認:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>R2# ping 203.0.113.1
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>R1# ping 203.0.113.1          ← 送信元が 10.0.12.1 (R4 に戻り経路なし) のため失敗します。PC1 からの疎通は 3.3.b (NAT) で確認
+</code></pre></div>
+<h3 id="bgp">BGP ネイバーの状態遷移<a class="headerlink" href="#bgp" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph LR
+    Idle --&gt; Connect --&gt; OpenSent --&gt; OpenConfirm --&gt; Established
+    Connect -.失敗.-&gt; Active
+    Active -.再試行.-&gt; Connect</code></pre>
+<table>
+<thead>
+<tr>
+<th>状態</th>
+<th>意味 / 典型的な原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Idle</strong></td>
+<td>開始前、またはエラー後の待機 (経路がない、設定ミス)</td>
+</tr>
+<tr>
+<td><strong>Active</strong></td>
+<td>TCP 179 を確立できず再試行中 (到達性、ACL、<code>neighbor</code> アドレスの誤り)</td>
+</tr>
+<tr>
+<td><strong>OpenSent / OpenConfirm</strong></td>
+<td>OPEN 交換中 (AS 番号不一致、認証不一致で <code>NOTIFICATION</code>)</td>
+</tr>
+<tr>
+<td><strong>Established</strong></td>
+<td>ネイバー確立。UPDATE を交換</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">ベストパス選択アルゴリズム (上から順に評価)<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Weight</strong> が最大 (Cisco 独自、ローカルのみ)</li>
+<li><strong>Local Preference</strong> が最大</li>
+<li>ローカルで生成 (network / redistribute / aggregate) された経路を優先</li>
+<li><strong>AS_PATH</strong> が最短</li>
+<li><strong>Origin</strong> コード (IGP &lt; EGP &lt; Incomplete)</li>
+<li><strong>MED</strong> が最小 (同一の隣接 AS からの経路のみ比較)</li>
+<li><strong>eBGP</strong> を iBGP より優先</li>
+<li>next-hop への <strong>IGP メトリック</strong>が最小</li>
+<li>最も古い eBGP 経路 (経路の安定性)</li>
+<li>最小の <strong>Router ID</strong></li>
+<li>最小のクラスターリスト長</li>
+<li>最小の<strong>ネイバーアドレス</strong></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">試験ポイント</p>
+<ul>
+<li><strong>eBGP のネイバー</strong>は既定で TTL=1。ループバック同士で張る場合は <code>ebgp-multihop</code> が必要。</li>
+<li><code>neighbor ... remote-as</code> の AS 番号が相手の実 AS と異なると <code>Active</code> / <code>Idle</code> のまま。</li>
+<li>eBGP ピアに送信するときは <strong>AS_PATH に自 AS を付加</strong>し、<strong>next-hop を自分に書き換える</strong>。</li>
+<li>受信した AS_PATH に自 AS を含む経路は<strong>ループ防止のため拒否</strong>する。</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">発展課題 (時間があれば)</p>
+<p>R2–R4 間に 2 本目のリンクと 2 本目の eBGP セッションを追加し、
+<code>route-map</code> で <code>set local-preference</code> / <code>set as-path prepend</code> を設定して、
+<code>show ip bgp</code> のベストパス (<code>&gt;</code>) がどう変わるか確認する。</p>
+</div>
+<h3 id="_8">壊して直す<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>R4(config)# router bgp 65002
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>R4(config-router)# neighbor 10.0.24.1 remote-as 65099
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>R4# show ip bgp summary
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>R4# show logging | include BGP
+</code></pre></div>
+<ul>
+<li>期待: ネイバーが確立せず、<code>%BGP-3-NOTIFICATION: ... bad peer AS</code> などが記録される。</li>
+<li>復旧: <code>neighbor 10.0.24.1 remote-as 65001</code> に戻す。</li>
+</ul>
+<hr />
+<h2 id="32d-pbr">3.2.d ポリシーベースルーティングの説明<a class="headerlink" href="#32d-pbr" title="Permanent link">&para;</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">所要 1 分 / 目標</p>
+<p>PBR の動作と設定要素 (ACL / route-map / <code>ip policy</code>) を説明できる。</p>
+</div>
+<h3 id="_9">概念<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>通常のルーティングは<strong>宛先アドレス</strong>のみで転送先を決める。
+  <strong>PBR</strong> は<strong>送信元アドレス、プロトコル、ポート番号、パケット長</strong>などの条件で転送先を決める。</li>
+<li>PBR は<strong>インターフェイスの入力方向</strong>で評価され、<strong>ルーティングテーブル検索よりも先</strong>に適用される。</li>
+<li>ルーターが<strong>自ら生成</strong>するトラフィックには <code>ip local policy route-map</code> を使う。</li>
+<li>route-map の <strong><code>match</code> に合致しないパケット</strong>や <strong><code>deny</code> エントリ</strong>に合致したパケットは、
+  通常のルーティングで転送される。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><code>set</code> コマンド</th>
+<th>動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>set ip next-hop &lt;IP&gt;</code></td>
+<td>指定ネクストホップへ転送 (到達不能なら通常ルーティングへ)</td>
+</tr>
+<tr>
+<td><code>set ip next-hop verify-availability</code></td>
+<td><strong>IP SLA / track</strong> でネクストホップの生存を確認</td>
+</tr>
+<tr>
+<td><code>set ip default next-hop &lt;IP&gt;</code></td>
+<td><strong>ルーティングテーブルに合致する経路がない場合のみ</strong>適用</td>
+</tr>
+<tr>
+<td><code>set interface &lt;IF&gt;</code></td>
+<td>指定インターフェイスから送信</td>
+</tr>
+<tr>
+<td><code>set ip dscp</code> / <code>set ip precedence</code></td>
+<td>QoS マーキング</td>
+</tr>
+</tbody>
+</table>
+<h3 id="r2-lan-http-isp">設定例 (R2: LAN からの HTTP のみ ISP 方向へ)<a class="headerlink" href="#r2-lan-http-isp" title="Permanent link">&para;</a></h3>
+<p>ラボのトラフィックに影響が少ない例です。適用は任意です。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ip access-list extended ACL-HTTP-FROM-LAN
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a> permit tcp 192.168.10.0 0.0.0.255 any eq 80
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>!
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>route-map PBR-HTTP permit 10
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a> match ip address ACL-HTTP-FROM-LAN
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a> set ip next-hop 10.0.24.2
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>!
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>route-map PBR-HTTP permit 20
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a> ! (match なし = 上記以外は通常ルーティング)
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>!
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>interface GigabitEthernet0/1
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a> ip policy route-map PBR-HTTP
+</code></pre></div>
+<h3 id="_10">確認<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>R2# show ip policy
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>R2# show route-map PBR-HTTP
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>R2# show ip access-lists ACL-HTTP-FROM-LAN
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>R2# debug ip policy           ← 本番では注意 (CPU 負荷)
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">試験ポイント</p>
+<ul>
+<li>PBR は<strong>入力インターフェイス</strong>に適用する (<code>ip policy route-map</code>)。</li>
+<li><code>route-map</code> の暗黙の末尾は <code>deny</code> ですが、PBR では<strong>不一致 = 通常ルーティング</strong>。</li>
+<li>動作はプラットフォームにより<strong>ハードウェア (CEF/TCAM)</strong> で処理される。</li>
+<li>経路障害時のフェイルオーバーには <strong><code>verify-availability</code> + IP SLA + track</strong> を併用する。</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="フッター" >
+        
+          
+          <a href="../31-layer2/" class="md-footer__link md-footer__link--prev" aria-label="前: 3.1 レイヤ 2">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                前
+              </span>
+              <div class="md-ellipsis">
+                3.1 レイヤ 2
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../33-ip-services/" class="md-footer__link md-footer__link--next" aria-label="次: 3.3 IP サービス">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                次
+              </span>
+              <div class="md-ellipsis">
+                3.3 IP サービス
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "content.code.copy", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

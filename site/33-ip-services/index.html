@@ -1,0 +1,1756 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="CCNP ENCOR 350-401 インフラストラクチャ (レイヤ2 / レイヤ3 / IPサービス) を30分で駆け抜けるハンズオンコース">
+      
+      
+      
+      
+        <link rel="prev" href="../32-layer3/">
+      
+      
+        <link rel="next" href="../99-summary/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>3.3 IP サービス - CCNP ENCOR ハンズオン (30分) - インフラストラクチャ</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#33-ip" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href=".." title="CCNP ENCOR ハンズオン (30分) - インフラストラクチャ" class="md-header__button md-logo" aria-label="CCNP ENCOR ハンズオン (30分) - インフラストラクチャ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CCNP ENCOR ハンズオン (30分) - インフラストラクチャ
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3.3 IP サービス
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="ダークモードに切り替え"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="ダークモードに切り替え" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="ライトモードに切り替え"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="ライトモードに切り替え" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CCNP ENCOR ハンズオン (30分) - インフラストラクチャ" class="md-nav__button md-logo" aria-label="CCNP ENCOR ハンズオン (30分) - インフラストラクチャ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CCNP ENCOR ハンズオン (30分) - インフラストラクチャ
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホーム
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-lab-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0. ラボ準備
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-layer2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.1 レイヤ 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32-layer3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.2 レイヤ 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.3 IP サービス
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.3 IP サービス
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#33a-ntp-ptp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.a NTP や PTP などのネットワーク時間プロトコル設定の理解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.a NTP や PTP などのネットワーク時間プロトコル設定の理解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ntp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ハンズオン (NTP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ntp_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NTP の要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ptp-precision-time-protocol-ieee-1588" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PTP (Precision Time Protocol, IEEE 1588)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33b-natpat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.b NAT/PAT の設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.b NAT/PAT の設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用語 (4 種類のアドレス)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ハンズオン (R2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        壊して直す
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33c-hsrp-vrrp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.c HSRP、VRRP などのファーストホップ冗長プロトコルの設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.c HSRP、VRRP などのファーストホップ冗長プロトコルの設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        比較
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hsrp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ハンズオン (HSRP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        壊して直す (フェイルオーバー)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vrrpv3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考: VRRPv3 の設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.d RPF チェック、PIM-SM、IGMP v2/v3、SSM、bidir、MSDP などのマルチキャストプロトコルの説明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.d RPF チェック、PIM-SM、IGMP v2/v3、SSM、bidir、MSDP などのマルチキャストプロトコルの説明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全体像
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPF チェック
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#igmp-v2-v3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IGMP v2 / v3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pim-smssmbidirmsdp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PIM-SM、SSM、bidir、MSDP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考コンフィグ (ラボには適用しません)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        確認コマンド
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    まとめ・確認問題
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#33a-ntp-ptp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.a NTP や PTP などのネットワーク時間プロトコル設定の理解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.a NTP や PTP などのネットワーク時間プロトコル設定の理解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ntp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ハンズオン (NTP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ntp_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NTP の要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ptp-precision-time-protocol-ieee-1588" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PTP (Precision Time Protocol, IEEE 1588)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33b-natpat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.b NAT/PAT の設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.b NAT/PAT の設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用語 (4 種類のアドレス)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ハンズオン (R2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        壊して直す
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33c-hsrp-vrrp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.c HSRP、VRRP などのファーストホップ冗長プロトコルの設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.c HSRP、VRRP などのファーストホップ冗長プロトコルの設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        比較
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hsrp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ハンズオン (HSRP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        壊して直す (フェイルオーバー)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vrrpv3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考: VRRPv3 の設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.d RPF チェック、PIM-SM、IGMP v2/v3、SSM、bidir、MSDP などのマルチキャストプロトコルの説明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.d RPF チェック、PIM-SM、IGMP v2/v3、SSM、bidir、MSDP などのマルチキャストプロトコルの説明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全体像
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPF チェック
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#igmp-v2-v3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IGMP v2 / v3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pim-smssmbidirmsdp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PIM-SM、SSM、bidir、MSDP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考コンフィグ (ラボには適用しません)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        確認コマンド
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="33-ip">3.3 IP サービス<a class="headerlink" href="#33-ip" title="Permanent link">&para;</a></h1>
+<p>使用デバイス: <strong>R1 / R2 / R3 / R4</strong> (PC1)</p>
+<hr />
+<h2 id="33a-ntp-ptp">3.3.a NTP や PTP などのネットワーク時間プロトコル設定の理解<a class="headerlink" href="#33a-ntp-ptp" title="Permanent link">&para;</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">所要 1 分 / 目標</p>
+<p>NTP の階層 (ストラタム) と認証付き設定を行い、PTP との違いと基本用語を説明できる。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">最初に設定して、最後に確認します</p>
+<p>NTP の同期には数分かかります。ここで設定を投入したら次へ進み、
+<a href="../99-summary/">まとめ</a> の時点で同期状態を確認してください。</p>
+</div>
+<h3 id="ntp">ハンズオン (NTP)<a class="headerlink" href="#ntp" title="Permanent link">&para;</a></h3>
+<p>R1 を NTP サーバー (ストラタム 3) にし、R2 / R3 をクライアントにします。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">R1 (サーバー)</label><label for="__tabbed_1_2">R2 (クライアント)</label><label for="__tabbed_1_3">R3 (クライアント)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>clock timezone JST 9 0
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ntp authentication-key 1 md5 CCNP-NTP-KEY
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ntp trusted-key 1
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>ntp source Loopback0
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>ntp master 3
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>clock timezone JST 9 0
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ntp authentication-key 1 md5 CCNP-NTP-KEY
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ntp authenticate
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>ntp trusted-key 1
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>ntp server 1.1.1.1 key 1 source Loopback0
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>clock timezone JST 9 0
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ntp authentication-key 1 md5 CCNP-NTP-KEY
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>ntp authenticate
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>ntp trusted-key 1
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>ntp server 1.1.1.1 key 1 source Loopback0
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>R2# show ntp status
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>R2# show ntp associations
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>R1# show clock detail
+</code></pre></div>
+<p>期待結果 (数分後): <code>Clock is synchronized, stratum 4, reference is 1.1.1.1</code> /
+associations で <code>*</code> (sys.peer) が表示される。</p>
+<h3 id="ntp_1">NTP の要点<a class="headerlink" href="#ntp_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ストラタム</td>
+<td>0 = 基準時計 (GPS / 原子時計)。1〜15 = 階層。<strong>16 = 非同期</strong></td>
+</tr>
+<tr>
+<td><code>ntp server</code></td>
+<td>上位サーバーに同期するクライアント</td>
+</tr>
+<tr>
+<td><code>ntp peer</code></td>
+<td>対等な相手と相互に同期 (対称アクティブ)</td>
+</tr>
+<tr>
+<td><code>ntp master &lt;stratum&gt;</code></td>
+<td>外部ソースなしで自身を時刻源にする (<strong>ラボ向け</strong>)</td>
+</tr>
+<tr>
+<td>認証</td>
+<td><code>ntp authentication-key</code> / <code>ntp authenticate</code> / <code>ntp trusted-key</code></td>
+</tr>
+<tr>
+<td>アクセス制御</td>
+<td><code>ntp access-group</code></td>
+</tr>
+<tr>
+<td>通信</td>
+<td>UDP 123</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">試験ポイント</p>
+<ul>
+<li>クライアント側で <strong><code>ntp authenticate</code> と <code>ntp trusted-key</code> の両方</strong>が必要。</li>
+<li>時刻差が大きいと (約 1000 秒超) 同期できない。事前に <code>clock set</code> で合わせる。</li>
+<li>ログや証明書、Kerberos、ログ相関のために時刻同期は必須。</li>
+</ul>
+</div>
+<h3 id="ptp-precision-time-protocol-ieee-1588">PTP (Precision Time Protocol, IEEE 1588)<a class="headerlink" href="#ptp-precision-time-protocol-ieee-1588" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>比較項目</th>
+<th>NTP</th>
+<th>PTP (IEEE 1588v2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>精度</td>
+<td>ミリ秒〜</td>
+<td><strong>サブマイクロ秒〜ナノ秒</strong></td>
+</tr>
+<tr>
+<td>タイムスタンプ</td>
+<td>ソフトウェア</td>
+<td><strong>ハードウェア</strong> (NIC / ASIC)</td>
+</tr>
+<tr>
+<td>通信</td>
+<td>UDP 123 (ユニキャスト)</td>
+<td>UDP 319 (イベント) / 320 (一般)。マルチキャスト 224.0.1.129、または L2 (Ethernet)</td>
+</tr>
+<tr>
+<td>用途</td>
+<td>一般的な IT システム</td>
+<td>金融取引、放送 (SMPTE 2059)、通信 (4G/5G の同期)、産業用</td>
+</tr>
+<tr>
+<td>階層</td>
+<td>ストラタム</td>
+<td><strong>グランドマスター → 境界クロック → スレーブ</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>PTP のクロックタイプ</strong></p>
+<table>
+<thead>
+<tr>
+<th>タイプ</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ordinary Clock (OC)</strong></td>
+<td>単一ポートのクロック。<strong>Grandmaster (GM)</strong> またはスレーブ</td>
+</tr>
+<tr>
+<td><strong>Boundary Clock (BC)</strong></td>
+<td>複数ポート。上流に対してはスレーブ、下流に対してはマスター。<strong>ネットワーク遅延の累積を断ち切る</strong></td>
+</tr>
+<tr>
+<td><strong>Transparent Clock (TC)</strong></td>
+<td>通過するメッセージに滞留時間を補正値として加算 (E2E / P2P)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>主要メッセージ</strong>: <code>Announce</code> (BMCA 用) / <code>Sync</code> / <code>Follow_Up</code> / <code>Delay_Req</code> / <code>Delay_Resp</code></p>
+<p><strong>BMCA (Best Master Clock Algorithm)</strong> の比較順:
+<code>Priority1</code> → <code>Clock Class</code> → <code>Clock Accuracy</code> → <code>Offset Scaled Log Variance</code> → <code>Priority2</code> → <code>Clock Identity</code></p>
+<p><strong>設定例 (Catalyst 9000 系の例。プラットフォームによりコマンドは異なります。ラボには適用しません)</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ptp mode boundary delay-req
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ptp priority1 100
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>ptp priority2 100
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>ptp domain 0
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>show ptp clock
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>show ptp brief
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>show ptp port
+</code></pre></div>
+<hr />
+<h2 id="33b-natpat">3.3.b NAT/PAT の設定<a class="headerlink" href="#33b-natpat" title="Permanent link">&para;</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">所要 3 分 / 目標</p>
+<p>静的 NAT・動的 NAT・PAT の違いを理解し、PAT を設定して変換テーブルを確認できる。</p>
+</div>
+<h3 id="4">用語 (4 種類のアドレス)<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>用語</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Inside Local</strong></td>
+<td>内部ホストの実アドレス (例: 192.168.10.100)</td>
+</tr>
+<tr>
+<td><strong>Inside Global</strong></td>
+<td>外部から見た内部ホストのアドレス (例: 10.0.24.1:ポート)</td>
+</tr>
+<tr>
+<td><strong>Outside Local</strong></td>
+<td>内部から見た外部ホストのアドレス</td>
+</tr>
+<tr>
+<td><strong>Outside Global</strong></td>
+<td>外部ホストの実アドレス (例: 203.0.113.1)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>種類</th>
+<th>変換</th>
+<th>コマンドの要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>静的 NAT</strong></td>
+<td>1 対 1 (固定)</td>
+<td><code>ip nat inside source static &lt;local&gt; &lt;global&gt;</code></td>
+</tr>
+<tr>
+<td><strong>動的 NAT</strong></td>
+<td>プールからの 1 対 1</td>
+<td><code>ip nat pool</code> + <code>ip nat inside source list &lt;ACL&gt; pool &lt;名前&gt;</code></td>
+</tr>
+<tr>
+<td><strong>PAT (NAT オーバーロード)</strong></td>
+<td>多対 1 (ポート番号で識別)</td>
+<td><code>ip nat inside source list &lt;ACL&gt; interface &lt;IF&gt; overload</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="r2">ハンズオン (R2)<a class="headerlink" href="#r2" title="Permanent link">&para;</a></h3>
+<p>R2 を境界ルーターとし、<strong>LAN (192.168.10.0/24) を Gi0/3 の IP アドレスへ PAT</strong> します。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>access-list 10 permit 192.168.10.0 0.0.0.255
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>!
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>interface GigabitEthernet0/1
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a> ip nat inside
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>interface GigabitEthernet0/3
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a> ip nat outside
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>!
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>ip nat inside source list 10 interface GigabitEthernet0/3 overload
+</code></pre></div>
+<p><strong>参考: 静的 NAT (サーバー公開) と動的 NAT</strong> — 公開アドレス 198.51.100.0/24 は 3.2.c で BGP 広告済みです。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>! 静的 NAT: 内部サーバー 192.168.10.200 を 198.51.100.200 として公開
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>ip nat inside source static 192.168.10.200 198.51.100.200
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>!
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>! 動的 NAT: プールを利用 (PAT と同じ ACL を使う場合は、どちらか一方のみ有効にする)
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>ip nat pool PUBLIC 198.51.100.10 198.51.100.20 netmask 255.255.255.0
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>! ip nat inside source list 10 pool PUBLIC
+</code></pre></div>
+<h3 id="_1">確認<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>PC1# ping 203.0.113.1
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>PC1# ping 203.0.113.1 repeat 10
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>R2# show ip nat translations
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>R2# show ip nat statistics
+</code></pre></div>
+<p>期待結果の例:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Pro Inside global      Inside local       Outside local      Outside global
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>icmp 10.0.24.1:1       192.168.10.100:1   203.0.113.1:1      203.0.113.1:1
+</code></pre></div>
+<ul>
+<li><strong>Inside global</strong> が R2 の Gi0/3 (10.0.24.1) になり、ID (ポート) で区別されていれば PAT 成功。</li>
+<li><code>show ip nat statistics</code> で <code>Hits</code> / <code>Misses</code> が増えること、<code>Inside interfaces</code> / <code>Outside interfaces</code> が正しいことを確認。</li>
+</ul>
+<h3 id="_2">壊して直す<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>inside / outside を入れ替えて、変換されなくなることを確認します。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>R2(config)# interface GigabitEthernet0/1
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>R2(config-if)# no ip nat inside
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>R2(config-if)# ip nat outside
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>PC1# ping 203.0.113.1
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>R2# show ip nat statistics
+</code></pre></div>
+<ul>
+<li>復旧: <code>no ip nat outside</code> → <code>ip nat inside</code>。</li>
+<li>既存の変換が残る場合は <code>clear ip nat translation *</code>。</li>
+</ul>
+<p><strong>NAT トラブルシュートのチェックリスト</strong></p>
+<ol>
+<li><code>ip nat inside</code> / <code>ip nat outside</code> が<strong>正しいインターフェイス</strong>に付いているか</li>
+<li>変換対象 ACL が送信元をカバーしているか (<code>show access-lists</code>)</li>
+<li>外部から<strong>戻りの経路</strong>があるか (PAT でインターフェイスアドレスを使う場合は直結で OK)</li>
+<li>プールのアドレスがインターフェイスや他のプールと重複していないか</li>
+<li><code>debug ip nat</code> で変換の様子を確認 (本番では注意)</li>
+</ol>
+<hr />
+<h2 id="33c-hsrp-vrrp">3.3.c HSRP、VRRP などのファーストホップ冗長プロトコルの設定<a class="headerlink" href="#33c-hsrp-vrrp" title="Permanent link">&para;</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">所要 3 分 / 目標</p>
+<p>HSRP でゲートウェイ冗長を構成し、アクティブ/スタンバイの切り替えを確認する。
+VRRP との違いを説明できる。</p>
+</div>
+<h3 id="_3">比較<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th><strong>HSRP</strong></th>
+<th><strong>VRRP</strong></th>
+<th>GLBP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>規格</td>
+<td>Cisco 独自</td>
+<td>IETF (RFC 5798)</td>
+<td>Cisco 独自</td>
+</tr>
+<tr>
+<td>役割</td>
+<td>Active / Standby</td>
+<td><strong>Master</strong> / Backup</td>
+<td>AVG / AVF (<strong>負荷分散</strong>)</td>
+</tr>
+<tr>
+<td>仮想 MAC</td>
+<td>v1: 0000.0C07.ACxx / v2: 0000.0C9F.Fxxx</td>
+<td>0000.5E00.01xx</td>
+<td>0007.B400.xxyy</td>
+</tr>
+<tr>
+<td>マルチキャスト</td>
+<td>224.0.0.2 (v1) / <strong>224.0.0.102</strong> (v2)</td>
+<td><strong>224.0.0.18</strong></td>
+<td>224.0.0.102</td>
+</tr>
+<tr>
+<td>通信</td>
+<td>UDP 1985</td>
+<td><strong>IP プロトコル 112</strong></td>
+<td>UDP 3222</td>
+</tr>
+<tr>
+<td>プリエンプト (既定)</td>
+<td><strong>無効</strong></td>
+<td><strong>有効</strong></td>
+<td>無効</td>
+</tr>
+<tr>
+<td>既定プライオリティ</td>
+<td>100</td>
+<td>100 (アドレス所有者は 255)</td>
+<td>100</td>
+</tr>
+<tr>
+<td>Hello / Hold</td>
+<td>3 / 10 秒</td>
+<td>1 / 約 3 秒</td>
+<td>3 / 10 秒</td>
+</tr>
+<tr>
+<td>IPv6</td>
+<td>HSRP v2</td>
+<td>VRRPv3</td>
+<td>あり</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">試験ポイント</p>
+<ul>
+<li>HSRP は<strong>既定でプリエンプトが無効</strong>。プライオリティを高くしても <code>preempt</code> がなければ奪取しない。</li>
+<li>HSRP v2 はグループ番号 0〜4095 に対応し、仮想 MAC の形式が v1 と異なる。<strong>v1 と v2 は相互運用不可</strong>。</li>
+<li><code>track</code> でアップリンク障害時にプライオリティを下げ、<code>preempt</code> と組み合わせてフェイルオーバーする。</li>
+<li>両ルーターが Active になる場合は、<strong>L2 (VLAN / STP / トランク) の問題</strong>を疑う。</li>
+</ul>
+</div>
+<h3 id="hsrp">ハンズオン (HSRP)<a class="headerlink" href="#hsrp" title="Permanent link">&para;</a></h3>
+<p>R2 を Active (priority 110)、R1 を Standby (priority 100) にします。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">R1</label><label for="__tabbed_2_2">R2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>interface GigabitEthernet0/1
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a> standby version 2
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a> standby 10 ip 192.168.10.254
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a> standby 10 priority 100
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a> standby 10 preempt
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a> standby 10 authentication md5 key-string CCNP-HSRP
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>track 1 interface GigabitEthernet0/3 line-protocol
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>!
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>interface GigabitEthernet0/1
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a> standby version 2
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a> standby 10 ip 192.168.10.254
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a> standby 10 priority 110
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a> standby 10 preempt
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a> standby 10 authentication md5 key-string CCNP-HSRP
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a> standby 10 track 1 decrement 20
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">track の効果</p>
+<p>R2 の ISP 側 (Gi0/3) がダウンすると、R2 の priority は 110 − 20 = <strong>90</strong> になり、
+R1 (100) が <code>preempt</code> により Active になります。</p>
+</div>
+<h3 id="_4">確認<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>R1# show standby brief
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>R2# show standby brief
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>R2# show standby GigabitEthernet0/1
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>PC1# ping 192.168.10.254
+</code></pre></div>
+<p>期待結果: R2 が <code>Active</code>、R1 が <code>Standby</code>、仮想 IP が <code>192.168.10.254</code>、仮想 MAC が <code>0000.0C9F.F00A</code> (v2、グループ 10 = 0x00A)。</p>
+<h3 id="_5">壊して直す (フェイルオーバー)<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>PC1 から連続 ping を流しつつ、R2 の LAN 側を落とします。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>PC1# ping 192.168.10.254 repeat 1000
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>R2(config)# interface GigabitEthernet0/1
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>R2(config-if)# shutdown
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>R1# show standby brief       ← R1 が Active に遷移
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>R2(config-if)# no shutdown
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>R2# show standby brief       ← preempt により R2 が Active に復帰
+</code></pre></div>
+<ul>
+<li>数パケットの欠落後に VIP への ping が復旧すれば成功です。</li>
+</ul>
+<p><strong>よくある不具合</strong></p>
+<table>
+<thead>
+<tr>
+<th>症状</th>
+<th>確認</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>両方 Active</td>
+<td>L2 疎通 (VLAN、STP、トランク)、ACL で 224.0.0.102 を遮断していないか</td>
+</tr>
+<tr>
+<td>グループ・バージョン不一致</td>
+<td><code>show standby</code> で両端の version / group</td>
+</tr>
+<tr>
+<td>認証エラー</td>
+<td><code>%HSRP-4-BADAUTH</code> のログ</td>
+</tr>
+<tr>
+<td>高プライオリティなのに Standby</td>
+<td><code>preempt</code> の有無</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vrrpv3">参考: VRRPv3 の設定<a class="headerlink" href="#vrrpv3" title="Permanent link">&para;</a></h3>
+<p>HSRP と同一インターフェイスでは併用できないため、ラボには適用しません。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>fhrp version vrrp v3
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>!
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>interface GigabitEthernet0/1
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a> vrrp 10 address-family ipv4
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>  address 192.168.10.254 primary
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>  priority 110
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>  preempt
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a> exit-vrrp
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>show vrrp brief
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>show vrrp
+</code></pre></div>
+<hr />
+<h2 id="33d">3.3.d RPF チェック、PIM-SM、IGMP v2/v3、SSM、bidir、MSDP などのマルチキャストプロトコルの説明<a class="headerlink" href="#33d" title="Permanent link">&para;</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">所要 2 分 / 目標</p>
+<p>マルチキャストの転送モデルと各プロトコルの役割を整理し、
+RPF チェックと基本的な確認コマンドを説明できる。</p>
+</div>
+<h3 id="_6">全体像<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph LR
+    S["送信元 (S)"] --&gt;|"マルチキャスト&lt;br/&gt;(S,G)"| RP["RP / PIM ルーター"]
+    RP --&gt;|"共有ツリー (*,G)"| R["最終ホップルーター"]
+    R --&gt;|"IGMP"| H["受信者 (ホスト)"]
+    S -.-&gt;|"SPT (最短経路)"| R</code></pre>
+<table>
+<thead>
+<tr>
+<th>プロトコル</th>
+<th>役割</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IGMP</strong></td>
+<td>ホスト ↔ ルーター間。グループ参加・離脱の管理</td>
+</tr>
+<tr>
+<td><strong>PIM</strong></td>
+<td>ルーター間。マルチキャスト配信ツリーの構築</td>
+</tr>
+<tr>
+<td><strong>RPF チェック</strong></td>
+<td>ループ防止。受信 IF が<strong>送信元への最良ユニキャスト経路の出力 IF</strong>と一致するかを検証</td>
+</tr>
+<tr>
+<td><strong>MSDP</strong></td>
+<td>異なる PIM-SM ドメインの <strong>RP 間で送信元情報 (SA)</strong> を共有</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rpf">RPF チェック<a class="headerlink" href="#rpf" title="Permanent link">&para;</a></h3>
+<ul>
+<li>パケットの<strong>送信元アドレス</strong>を<strong>ユニキャストルーティングテーブル</strong>で検索する。</li>
+<li>到達に使う<strong>出力インターフェイス = パケットの受信インターフェイス</strong>なら転送、そうでなければ<strong>破棄</strong>する。</li>
+<li>共有ツリー (<em>,G) では送信元ではなく </em><em>RP のアドレス</em>*に対して RPF チェックを行う。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>show ip rpf 203.0.113.1
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>show ip rpf &lt;送信元 IP&gt;
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>mtrace &lt;送信元&gt; &lt;受信者&gt; &lt;グループ&gt;
+</code></pre></div>
+<h3 id="igmp-v2-v3">IGMP v2 / v3<a class="headerlink" href="#igmp-v2-v3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>IGMPv2</th>
+<th>IGMPv3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>送信元の指定</td>
+<td><strong>不可</strong> (ASM のみ)</td>
+<td><strong>可</strong> (INCLUDE / EXCLUDE → <strong>SSM</strong> に対応)</td>
+</tr>
+<tr>
+<td>レポート宛先</td>
+<td>参加するグループ宛</td>
+<td><strong>224.0.0.22</strong></td>
+</tr>
+<tr>
+<td>Leave</td>
+<td>あり (Leave Group → 224.0.0.2)</td>
+<td>レポートの状態変更で表現</td>
+</tr>
+<tr>
+<td>一般クエリ</td>
+<td>224.0.0.1 宛</td>
+<td>224.0.0.1 宛</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>interface GigabitEthernet0/1
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a> ip igmp version 3
+</code></pre></div>
+<h3 id="pim-smssmbidirmsdp">PIM-SM、SSM、bidir、MSDP<a class="headerlink" href="#pim-smssmbidirmsdp" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PIM-SM</strong> (Sparse Mode)</td>
+<td>受信者の<strong>明示的な Join</strong> で配信ツリーを構築。<strong>RP</strong> を中心とした共有ツリー (<em>,G) から、閾値で </em><em>最短経路ツリー (S,G) へ切替</em>*</td>
+</tr>
+<tr>
+<td>RP の決定方法</td>
+<td><strong>静的</strong> (<code>ip pim rp-address</code>) / <strong>Auto-RP</strong> (Cisco) / <strong>BSR</strong> (標準)</td>
+</tr>
+<tr>
+<td><strong>SSM</strong></td>
+<td>受信者が (S,G) を指定。<strong>RP 不要</strong>。既定範囲 <strong>232.0.0.0/8</strong>。IGMPv3 が必須</td>
+</tr>
+<tr>
+<td><strong>BiDir PIM</strong></td>
+<td>双方向共有ツリー (<em>,G) のみ。</em><em>(S,G) 状態なし</em><em>でスケールする。</em><em>DF (Designated Forwarder)</em>* を選出。多対多に有効</td>
+</tr>
+<tr>
+<td><strong>MSDP</strong></td>
+<td><strong>TCP 639</strong>。<strong>Source Active (SA)</strong> メッセージで RP 間の送信元情報を共有。<strong>Anycast RP</strong> 構成でも使用</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">試験ポイント</p>
+<ul>
+<li>PIM-SM: 受信者→ RP へ <strong>(*,G) Join</strong>、送信元 → RP へ <strong>Register</strong>、その後 <strong>(S,G) Join</strong> で SPT に切替。</li>
+<li>SSM は <strong>IGMPv3 + <code>ip pim ssm default</code></strong>。RP は不要。</li>
+<li>BiDir は <strong>(S,G) を作らない</strong>。<code>ip pim bidir-enable</code> が必要。</li>
+<li>RPF 失敗 = パケット破棄。<strong>ユニキャスト経路が変わるとマルチキャストも変わる</strong>。</li>
+</ul>
+</div>
+<h3 id="_7">参考コンフィグ (ラボには適用しません)<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>! --- 共通 (PIM-SM) ---
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>ip multicast-routing
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>interface GigabitEthernet0/0
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a> ip pim sparse-mode
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>interface GigabitEthernet0/1
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a> ip pim sparse-mode
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a> ip igmp version 3
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>!
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>! --- RP (静的) ---
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>ip pim rp-address 2.2.2.2
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>!
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>! --- SSM ---
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>ip pim ssm default
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>!
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>! --- BiDir ---
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>ip pim bidir-enable
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>access-list 20 permit 239.100.0.0 0.0.255.255
+<a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>ip pim rp-address 2.2.2.2 20 bidir
+<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>!
+<a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>! --- MSDP (RP 間) ---
+<a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>ip msdp peer 192.0.2.2 connect-source Loopback0
+</code></pre></div>
+<h3 id="_8">確認コマンド<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>コマンド</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>show ip pim neighbor</code></td>
+<td>PIM ネイバー</td>
+</tr>
+<tr>
+<td><code>show ip pim rp mapping</code></td>
+<td>RP とグループの対応</td>
+</tr>
+<tr>
+<td><code>show ip igmp groups</code> / <code>show ip igmp interface</code></td>
+<td>IGMP の参加状態</td>
+</tr>
+<tr>
+<td><code>show ip mroute</code> / <code>show ip mroute count</code></td>
+<td>マルチキャストルーティングテーブル (<code>(*,G)</code> / <code>(S,G)</code>、フラグ、RPF 情報)</td>
+</tr>
+<tr>
+<td><code>show ip rpf &lt;IP&gt;</code></td>
+<td>RPF インターフェイスとネイバー</td>
+</tr>
+<tr>
+<td><code>show ip msdp peer</code> / <code>show ip msdp sa-cache</code></td>
+<td>MSDP のピアと SA キャッシュ</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">時間が余ったら (任意)</p>
+<p>R1 / R2 の Gi0/0・Gi0/1・Lo0 に <code>ip pim sparse-mode</code> を設定し、<code>ip pim rp-address 2.2.2.2</code> を両方に設定。
+R1 の Gi0/1 に <code>ip igmp join-group 239.1.1.1</code> を入れて、<code>show ip igmp groups</code> と
+<code>show ip mroute 239.1.1.1</code> で <code>(*,G)</code> が作られることを確認します
+(事前に両ルーターで <code>ip multicast-routing</code> が必要)。</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="フッター" >
+        
+          
+          <a href="../32-layer3/" class="md-footer__link md-footer__link--prev" aria-label="前: 3.2 レイヤ 3">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                前
+              </span>
+              <div class="md-ellipsis">
+                3.2 レイヤ 3
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../99-summary/" class="md-footer__link md-footer__link--next" aria-label="次: まとめ・確認問題">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                次
+              </span>
+              <div class="md-ellipsis">
+                まとめ・確認問題
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "content.code.copy", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
